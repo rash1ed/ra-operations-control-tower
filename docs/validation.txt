@@ -1,0 +1,67 @@
+RA Operations Control Tower v0.1 — Local Validation
+
+## 10 approved tests
+Command: python -m unittest tests.test_initial_red_gate tests.test_phase2a tests.test_phase2b tests.test_phase2c tests.test_phase2d -v
+Exit code: 0
+test_clean_tracker_no_overdue (tests.test_initial_red_gate.TestInitialRedGate.test_clean_tracker_no_overdue) ... ok
+test_on_time_delivery_calculation (tests.test_initial_red_gate.TestInitialRedGate.test_on_time_delivery_calculation) ... ok
+test_overdue_detection_basic (tests.test_initial_red_gate.TestInitialRedGate.test_overdue_detection_basic) ... ok
+test_avg_open_age_computation (tests.test_phase2a.TestPhase2A.test_avg_open_age_computation) ... ok
+test_rag_green_amber_red_boundaries (tests.test_phase2a.TestPhase2A.test_rag_green_amber_red_boundaries) ... ok
+test_duplicate_task_id_detected (tests.test_phase2b.TestPhase2BValidation.test_duplicate_task_id_detected) ... ok
+test_missing_required_column_fails_gracefully (tests.test_phase2b.TestPhase2BValidation.test_missing_required_column_fails_gracefully) ... ok
+test_empty_completed_set_handled (tests.test_phase2c.TestPhase2CAnalytics.test_empty_completed_set_handled) ... ok
+test_raid_extraction (tests.test_phase2c.TestPhase2CAnalytics.test_raid_extraction) ... ok
+test_output_excel_has_all_sheets (tests.test_phase2d.TestPhase2DExcelWriter.test_output_excel_has_all_sheets) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.019s
+
+OK
+
+## CSV smoke
+Command: python -m control_tower --input samples/clean.csv --output output/validation_clean.xlsx --as-of-date 2026-01-15
+Exit code: 0
+As of 2026-01-15: 2 project(s), 4 task(s), 2 completed, 2 open, 0 overdue. On-time delivery: 100.00%. RAG: Green 2, Amber 0, Red 0.
+Report: output\validation_clean.xlsx
+
+## XLSX smoke
+Command: python -m control_tower --input samples/mixed.xlsx --output output/validation_mixed.xlsx --as-of-date 2026-01-15
+Exit code: 0
+As of 2026-01-15: 2 project(s), 6 task(s), 2 completed, 4 open, 1 overdue. On-time delivery: 50.00%. RAG: Green 1, Amber 0, Red 1.
+Report: output\validation_mixed.xlsx
+
+## Edge-case smoke
+Command: python -m control_tower --input samples/edge-case.csv --output output/validation_edge.xlsx --as-of-date 2026-01-15
+Exit code: 0
+As of 2026-01-15: 2 project(s), 3 task(s), 0 completed, 3 open, 1 overdue. On-time delivery: N/A. RAG: Green 1, Amber 0, Red 1.
+Report: output\validation_edge.xlsx
+C:\Users\lllSl\Documents\ra-operations-control-tower\src\control_tower\cli.py:52: UserWarning: raid_description present without raid_type in row 2
+  validate_rows(rows)
+
+## Microsoft Excel application verification
+Exit code: 0
+FILE=clean_report.xlsx
+OPEN=PASS|SHEETS=KPIs|RAG|Overdue|RAID|Executive_Summary
+KPI|total_tasks|4
+KPI|completed_count|2
+KPI|open_count|2
+KPI|overdue_count|0
+KPI|on_time_delivery_pct|100
+KPI|avg_open_age_days|5
+FILE=mixed_report.xlsx
+OPEN=PASS|SHEETS=KPIs|RAG|Overdue|RAID|Executive_Summary
+KPI|total_tasks|6
+KPI|completed_count|2
+KPI|open_count|4
+KPI|overdue_count|1
+KPI|on_time_delivery_pct|50
+KPI|avg_open_age_days|12.3333333333333
+FILE=edge_case_report.xlsx
+OPEN=PASS|SHEETS=KPIs|RAG|Overdue|RAID|Executive_Summary
+KPI|total_tasks|3
+KPI|completed_count|0
+KPI|open_count|3
+KPI|overdue_count|1
+KPI|on_time_delivery_pct|N/A
+KPI|avg_open_age_days|14

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Compile modules
+        env:
+          PYTHONPATH: src
+        run: python -m compileall -q src
+
+      - name: Run approved tests
+        env:
+          PYTHONPATH: src
+        run: python -m unittest tests.test_initial_red_gate tests.test_phase2a tests.test_phase2b tests.test_phase2c tests.test_phase2d -v
+
+      - name: CSV smoke
+        env:
+          PYTHONPATH: src
+        run: python -m control_tower --input samples/clean.csv --output ci-output/clean.xlsx --as-of-date 2026-01-15
+
+      - name: XLSX smoke
+        env:
+          PYTHONPATH: src
+        run: python -m control_tower --input samples/mixed.xlsx --output ci-output/mixed.xlsx --as-of-date 2026-01-15

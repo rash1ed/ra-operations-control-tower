@@ -1,0 +1,7 @@
+task_id,project,owner,status,priority,start_date,due_date,completion_date,raid_type,raid_description
+M-001,Alpha,Rashed,In Progress,Critical,2026-01-01,2026-01-10,,Risk,Vendor delay may affect milestone
+M-002,Alpha,Nora,Blocked,High,2026-01-02,2026-01-20,,Issue,Access approval pending
+M-003,Alpha,Lina,Completed,Medium,2026-01-01,2026-01-08,2026-01-08,,
+M-004,Beta,Omar,Completed,Low,2026-01-03,2026-01-09,2026-01-11,,
+M-005,Beta,Rashed,In Progress,High,2026-01-05,2026-01-28,,Dependency,Awaiting upstream data
+M-006,Beta,Nora,Not Started,Medium,,2026-02-01,,,

@@ -1,0 +1,4 @@
+task_id,project,owner,status,priority,start_date,due_date,completion_date,raid_type,raid_description
+E-001,Small,Rashed,In Progress,High,2026-01-01,2026-01-10,,,
+E-002,Small,Nora,Blocked,Critical,,2026-01-30,,,Description without RAID type
+E-003,NoCompleted,Lina,Not Started,Low,,2026-02-15,,,
