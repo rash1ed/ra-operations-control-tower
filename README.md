@@ -1,5 +1,7 @@
 # RA Operations Control Tower
 
+[![CI](https://github.com/rash1ed/ra-operations-control-tower/actions/workflows/ci.yml/badge.svg)](https://github.com/rash1ed/ra-operations-control-tower/actions/workflows/ci.yml)
+
 Deterministic, dependency-free operations reporting CLI for task and project trackers.
 
 It reads a `.csv` or `.xlsx` tracker, validates the schema, calculates operational KPIs, assigns per-project RAG status, extracts overdue and RAID records, and writes a five-sheet Excel report.

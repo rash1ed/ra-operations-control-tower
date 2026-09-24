@@ -10,7 +10,7 @@ Repository: https://github.com/rash1ed/ra-operations-control-tower
 - Microsoft Excel application open/readback of generated reports: PASS.
 - RA Verifier Agent v0.1 Phase 2d gate: PASS.
 - Secret scan: PASS.
-- GitHub Actions workflow configured for Python 3.11 and 3.12; remote result pending first push.
+- GitHub Actions run #1: PASS (Python 3.11 + 3.12 matrix).
 
 ## SHA-256 evidence
 
@@ -39,3 +39,11 @@ Repository: https://github.com/rash1ed/ra-operations-control-tower
 - No LinkedIn or CV changes are part of this project.
 - Runtime dependencies remain empty.
 - No LLM or external service is used by the v0.1 runtime.
+
+## GitHub Actions evidence
+
+- Commit: `5a2784f452907b8a82d69520dedd46148058fe45`
+- Run ID: `36060679902`
+- Conclusion: `success`
+- Run: https://github.com/rash1ed/ra-operations-control-tower/actions/runs/36060679902
+
