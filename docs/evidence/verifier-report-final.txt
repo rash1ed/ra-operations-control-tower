@@ -1,0 +1,22 @@
+RA Verifier Agent v0.1
+Artifact: C:\Users\lllSl\Documents\ra-operations-control-tower
+Status: PASS
+
+[PASS] required_files
+  - 26 required file(s) present.
+  Evidence: README.md, SPEC.md, pyproject.toml, .github/workflows/ci.yml, docs/architecture.md, docs/validation.txt, docs/proof-register.md, docs/evidence/kpis.png, docs/evidence/rag.png, src/control_tower/__init__.py, src/control_tower/__main__.py, src/control_tower/analytics.py, src/control_tower/validation.py, src/control_tower/excel_writer.py, src/control_tower/loader.py, src/control_tower/cli.py, tests/test_initial_red_gate.py, tests/test_phase2a.py, tests/test_phase2b.py, tests/test_phase2c.py, tests/test_phase2d.py, samples/clean.csv, samples/mixed.csv, samples/mixed.xlsx, samples/edge-case.csv, output/test_report.xlsx
+
+[PASS] sha256
+  - 20 SHA256 expectation(s) matched.
+  Evidence: SPEC.md, pyproject.toml, .github/workflows/ci.yml, src/control_tower/__init__.py, src/control_tower/__main__.py, src/control_tower/analytics.py, src/control_tower/validation.py, src/control_tower/excel_writer.py, src/control_tower/loader.py, src/control_tower/cli.py, tests/test_initial_red_gate.py, tests/test_phase2a.py, tests/test_phase2b.py, tests/test_phase2c.py, tests/test_phase2d.py, samples/clean.csv, samples/mixed.csv, samples/mixed.xlsx, samples/edge-case.csv, output/test_report.xlsx
+
+[PASS] tests
+  - Exit code: 0
+  Evidence: cmd /c set PYTHONPATH=src&& python -m unittest tests.test_initial_red_gate tests.test_phase2a tests.test_phase2b tests.test_phase2c tests.test_phase2d -v && python -m control_tower --input samples\clean.csv --output output\verifier_clean.xlsx --as-of-date 2026-01-15 && python -m control_tower --input samples\mixed.xlsx --output output\verifier_mixed.xlsx --as-of-date 2026-01-15
+
+[PASS] secret_scan
+  - No secret patterns found.
+
+[PASS] claim_evidence
+  - 1 claim rule(s) matched evidence.
+  Evidence: README.md, docs\validation.txt

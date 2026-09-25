@@ -1,0 +1,106 @@
+{
+  "artifact": "C:\\Users\\lllSl\\Documents\\ra-operations-control-tower",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "required_files",
+      "status": "PASS",
+      "reasons": [
+        "26 required file(s) present."
+      ],
+      "evidence_refs": [
+        "README.md",
+        "SPEC.md",
+        "pyproject.toml",
+        ".github/workflows/ci.yml",
+        "docs/architecture.md",
+        "docs/validation.txt",
+        "docs/proof-register.md",
+        "docs/evidence/kpis.png",
+        "docs/evidence/rag.png",
+        "src/control_tower/__init__.py",
+        "src/control_tower/__main__.py",
+        "src/control_tower/analytics.py",
+        "src/control_tower/validation.py",
+        "src/control_tower/excel_writer.py",
+        "src/control_tower/loader.py",
+        "src/control_tower/cli.py",
+        "tests/test_initial_red_gate.py",
+        "tests/test_phase2a.py",
+        "tests/test_phase2b.py",
+        "tests/test_phase2c.py",
+        "tests/test_phase2d.py",
+        "samples/clean.csv",
+        "samples/mixed.csv",
+        "samples/mixed.xlsx",
+        "samples/edge-case.csv",
+        "output/test_report.xlsx"
+      ],
+      "details": {}
+    },
+    {
+      "name": "sha256",
+      "status": "PASS",
+      "reasons": [
+        "20 SHA256 expectation(s) matched."
+      ],
+      "evidence_refs": [
+        "SPEC.md",
+        "pyproject.toml",
+        ".github/workflows/ci.yml",
+        "src/control_tower/__init__.py",
+        "src/control_tower/__main__.py",
+        "src/control_tower/analytics.py",
+        "src/control_tower/validation.py",
+        "src/control_tower/excel_writer.py",
+        "src/control_tower/loader.py",
+        "src/control_tower/cli.py",
+        "tests/test_initial_red_gate.py",
+        "tests/test_phase2a.py",
+        "tests/test_phase2b.py",
+        "tests/test_phase2c.py",
+        "tests/test_phase2d.py",
+        "samples/clean.csv",
+        "samples/mixed.csv",
+        "samples/mixed.xlsx",
+        "samples/edge-case.csv",
+        "output/test_report.xlsx"
+      ],
+      "details": {}
+    },
+    {
+      "name": "tests",
+      "status": "PASS",
+      "reasons": [
+        "Exit code: 0"
+      ],
+      "evidence_refs": [
+        "cmd /c set PYTHONPATH=src&& python -m unittest tests.test_initial_red_gate tests.test_phase2a tests.test_phase2b tests.test_phase2c tests.test_phase2d -v && python -m control_tower --input samples\\clean.csv --output output\\verifier_clean.xlsx --as-of-date 2026-01-15 && python -m control_tower --input samples\\mixed.xlsx --output output\\verifier_mixed.xlsx --as-of-date 2026-01-15"
+      ],
+      "details": {
+        "output_tail": "As of 2026-01-15: 2 project(s), 4 task(s), 2 completed, 2 open, 0 overdue. On-time delivery: 100.00%. RAG: Green 2, Amber 0, Red 0.\nReport: output\\verifier_clean.xlsx\nAs of 2026-01-15: 2 project(s), 6 task(s), 2 completed, 4 open, 1 overdue. On-time delivery: 50.00%. RAG: Green 1, Amber 0, Red 1.\nReport: output\\verifier_mixed.xlsx\ntest_clean_tracker_no_overdue (tests.test_initial_red_gate.TestInitialRedGate.test_clean_tracker_no_overdue) ... ok\ntest_on_time_delivery_calculation (tests.test_initial_red_gate.TestInitialRedGate.test_on_time_delivery_calculation) ... ok\ntest_overdue_detection_basic (tests.test_initial_red_gate.TestInitialRedGate.test_overdue_detection_basic) ... ok\ntest_avg_open_age_computation (tests.test_phase2a.TestPhase2A.test_avg_open_age_computation) ... ok\ntest_rag_green_amber_red_boundaries (tests.test_phase2a.TestPhase2A.test_rag_green_amber_red_boundaries) ... ok\ntest_duplicate_task_id_detected (tests.test_phase2b.TestPhase2BValidation.test_duplicate_task_id_detected) ... ok\ntest_missing_required_column_fails_gracefully (tests.test_phase2b.TestPhase2BValidation.test_missing_required_column_fails_gracefully) ... ok\ntest_empty_completed_set_handled (tests.test_phase2c.TestPhase2CAnalytics.test_empty_completed_set_handled) ... ok\ntest_raid_extraction (tests.test_phase2c.TestPhase2CAnalytics.test_raid_extraction) ... ok\ntest_output_excel_has_all_sheets (tests.test_phase2d.TestPhase2DExcelWriter.test_output_excel_has_all_sheets) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.023s\n\nOK"
+      }
+    },
+    {
+      "name": "secret_scan",
+      "status": "PASS",
+      "reasons": [
+        "No secret patterns found."
+      ],
+      "evidence_refs": [],
+      "details": {}
+    },
+    {
+      "name": "claim_evidence",
+      "status": "PASS",
+      "reasons": [
+        "1 claim rule(s) matched evidence."
+      ],
+      "evidence_refs": [
+        "README.md",
+        "docs\\validation.txt"
+      ],
+      "details": {}
+    }
+  ]
+}
