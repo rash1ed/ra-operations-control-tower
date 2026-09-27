@@ -125,3 +125,15 @@ See `docs/architecture.md`, `docs/validation.txt`, and `docs/proof-register.md`.
 ## License
 
 No license is granted by default. All rights reserved unless a license is added later.
+
+## Agent Operations extension (v0.2 experimental)
+
+A separate synthetic extension demonstrates AI-workforce governance through an Operations / PMO lens: agent roles, budgets, workload, heartbeat freshness and deterministic RAG health. It does **not** change the validated v0.1 reporting workflow and does not call any model or external API.
+
+- [Extension design and Paperclip relation](docs/agent-operations-extension.md)
+- [Recruiter-facing org chart demo](docs/agent-operations-demo.md)
+- [Synthetic demo report](docs/agent-operations-report.md)
+- [Synthetic input sample](samples/agent_ops.csv)
+
+The extension is original portfolio work. It is not a Paperclip fork and includes no Paperclip code.
+

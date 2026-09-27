@@ -1,0 +1,7 @@
+agent_id,role,manager,status,monthly_budget_usd,spend_usd,open_tasks,blocked_tasks,heartbeat_age_min
+A-CEO,AI Operations Lead,,active,120,58,5,0,9
+A-PMO,PMO Coordinator,A-CEO,active,80,66,6,1,31
+A-REP,Reporting Analyst,A-PMO,active,60,18,4,0,14
+A-QA,Evidence Verifier,A-CEO,active,50,42,3,1,52
+A-AUTO,Automation Operator,A-CEO,paused,70,32,2,0,18
+A-DATA,Data Analyst,A-PMO,offline,75,20,3,2,185
